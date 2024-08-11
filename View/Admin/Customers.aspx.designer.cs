@@ -33,39 +33,39 @@ namespace CruizeControlRentalCars.View.Admin
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtLname;
 
         /// <summary>
-        /// txtModel control.
+        /// txtPhoneNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtModel;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPhoneNo;
 
         /// <summary>
-        /// txtPrice control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPrice;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmail;
 
         /// <summary>
-        /// txtColor control.
+        /// txtPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtColor;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPassword;
 
         /// <summary>
-        /// ddlAvailable control.
+        /// txtConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAvailable;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtConfirm;
     }
 }

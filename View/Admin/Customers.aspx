@@ -56,7 +56,7 @@
                         <div class="col">
                             <h3 class="auto-style5">Register</h3>
                         <div class="col"></div>
-                        <div class="col"></div><img src="../../Assets/Img/car-png-39071.png" class="auto-style4" >
+                        <div class="col"></div><img src="../../Assets/Img/car-png-39053.png"  class="auto-style4" /> 
                 </div>
                 <div class="row">
                     <div class="col d-grid">
@@ -72,35 +72,28 @@
                                 </div>
 
                               <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Model</label>
-                                <input type="text" class="auto-style3" id="txtModel" placeholder="Enter Car Model" runat="server">
+                                <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+                                <input type="text" class="auto-style3" id="txtPhoneNo" placeholder="Enter Your Phone Number" runat="server">
                                </div>
 
                               <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">CarDailyRate</label>
-                                <input type="text" class="auto-style3" id="txtPrice" placeholder="Enter Car's Daily Rate" runat="server">
+                                <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                                <input type="text" class="auto-style3" id="txtEmail" placeholder="Enter Your Email Address" runat="server">
                                 </div>
 
                               <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Color</label>
-                                <input type="text" class="auto-style3" id="txtColor" placeholder="Enter Car Color" runat="server">
+                                <label for="exampleInputEmail1" class="form-label">Password</label>
+                                <input type="text" class="auto-style3" id="txtPassword" placeholder="Enter Your Password" runat="server">
                                 </div>
-
                               <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Available</label>
-                                      <asp:DropDownList ID="ddlAvailable" runat="server">
-                                          <asp:ListItem>Available</asp:ListItem>
-                                          <asp:ListItem>Booked</asp:ListItem>
-                                      </asp:DropDownList>
-                                  
+                                <label for="exampleInputEmail1" class="form-label">Confirm Password</label>
+                                <input type="text" class="auto-style3" id="txtConfirm" placeholder="Confirm Your Password" runat="server">
+                                </div>
+                             <div class="d-flex">
+                                <button type="submit" class="btn btn-primary" style="width: 90px; margin-right: 5px;" id="btnSubmit">Submit</button>
                                  </div>
-                     <br />
-                           <br/>
-                           <div class="d-flex">
-                                <button type="submit" class="btn btn-primary" style="width: 90px; margin-right: 5px;">Edit</button>
-                                <button type="submit" class="btn btn-primary" style="width: 90px; margin-right: 5px;">Add</button>
-                                <button type="submit" class="btn btn-primary" style="width: 90px;">Delete</button>
-                            </div>
+
+                           
                           </form>
 
                     </div>
