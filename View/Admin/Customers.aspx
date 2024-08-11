@@ -38,7 +38,27 @@
                                 <label for="exampleInputEmail1" class="form-label">Licence Number</label>
                                 <input type="text" class="auto-style3" id="txtLicenceNo" placeholder="Enter Cistomer's LicenceNo"runat="server">
                                 </div>
+                                <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Customer's Last Name</label>
+                                        <input type="text" class="auto-style2" id="Text1" placeholder="Enter Customer's First Name" runat="server">
+                                        </div>
 
+                                      <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Customer Address</label>
+                                        <input type="text" class="auto-style3" id="Text2" placeholder="Enter Customer's Address" runat="server">
+                                       </div>
+
+                                      <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+                                        <input type="text" class="auto-style3" id="Text3" placeholder="Enter Customer's Phone Number" runat="server">
+                                        </div>
+
+                                      <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Licence Number</label>
+                                        <input type="text" class="auto-style3" id="Text4" placeholder="Enter Cistomer's LicenceNo"runat="server">
+                                        </div>
+
+                         <br />  
                             
                            <br />
                             <button type="submit" class="btn btn-primary" id="btnEdit">Edit</button>
