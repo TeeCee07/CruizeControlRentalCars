@@ -33,22 +33,22 @@ namespace CruizeControlRentalCars.View.Admin
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBrand;
 
         /// <summary>
-        /// txtModel control.
+        /// txtMake control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtModel;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMake;
 
         /// <summary>
-        /// txtPrice control.
+        /// txtYearMake control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPrice;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtYearMake;
 
         /// <summary>
         /// txtColor control.
@@ -58,6 +58,15 @@ namespace CruizeControlRentalCars.View.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtColor;
+
+        /// <summary>
+        /// txtPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPrice;
 
         /// <summary>
         /// ddlAvailable control.

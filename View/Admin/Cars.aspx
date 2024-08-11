@@ -75,19 +75,25 @@
                                 </div>
 
                               <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Model</label>
-                                <input type="text" class="auto-style3" id="txtModel" placeholder="Enter Car Model" runat="server">
+                                <label for="exampleInputEmail1" class="form-label">Make</label>
+                                <input type="text" class="auto-style3" id="txtMake" placeholder="Enter Car Make" runat="server">
                                </div>
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Year Make</label>
+                              <input type="text" class="auto-style3" id="txtYearMake" placeholder="Enter Car Year Make" runat="server">
+                              </div>
+
+                             <div class="mb-3">
+                                  <label for="exampleInputEmail1" class="form-label">Color</label>
+                                  <input type="text" class="auto-style3" id="txtColor" placeholder="Enter Car Color" runat="server">
+                                  </div>
 
                               <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">CarDailyRate</label>
                                 <input type="text" class="auto-style3" id="txtPrice" placeholder="Enter Car's Daily Rate" runat="server">
                                 </div>
 
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Color</label>
-                                <input type="text" class="auto-style3" id="txtColor" placeholder="Enter Car Color" runat="server">
-                                </div>
+                              
 
                               <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Available</label>

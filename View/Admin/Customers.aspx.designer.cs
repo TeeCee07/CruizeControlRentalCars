@@ -33,48 +33,39 @@ namespace CruizeControlRentalCars.View.Admin
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtLname;
 
         /// <summary>
-        /// txtAddress control.
+        /// txtModel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtAddress;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtModel;
 
         /// <summary>
-        /// txtPhoneNo control.
+        /// txtPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPhoneNo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPrice;
 
         /// <summary>
-        /// Text1 control.
+        /// txtColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtColor;
 
         /// <summary>
-        /// Text2 control.
+        /// ddlAvailable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text2;
-
-        /// <summary>
-        /// Text3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAvailable;
     }
 }
