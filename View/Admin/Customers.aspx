@@ -8,7 +8,7 @@
                         <div class="col"></div>
                         <div class="col">
                             <h3 class="text-black pe-lg-4">Manage Customers</h3>
-                        <div claa="col"><img src ="../../Assets/Img/Pic 1.png"</div>
+                        <div class="col">img here</div>
                         <div class="col"></div>
                 </div>
                 <div class="row">
