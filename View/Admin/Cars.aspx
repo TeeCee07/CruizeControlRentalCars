@@ -95,7 +95,7 @@
             </div>
             <div class="col-md-8"></div>
             <table class="table">
-                <!-- Table content -->
+               
             </table>
         </div>
     </div>
