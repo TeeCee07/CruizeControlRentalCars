@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Img\BRABUS Rocket 900 grey.jpg" />
+    <Content Include="Assets\Img\C63.png" />
     <Content Include="Assets\Img\car-png-16830.png" />
     <Content Include="Assets\Img\car-png-16841.png" />
     <Content Include="Assets\Img\car-png-16842.png" />
@@ -74,7 +76,7 @@
     <Content Include="Assets\Img\car-png-39053.png" />
     <Content Include="Assets\Img\car-png-39069.png" />
     <Content Include="Assets\Img\car-png-39071.png" />
-    <Content Include="Assets\Img\person icon.jpg" />
+    <Content Include="Assets\Img\Person.png" />
     <Content Include="Assets\Img\PIC 2.jpg" />
     <Content Include="Assets\Img\Pic3.jpg" />
     <Content Include="Assets\Libraries\css\bootstrap-grid.css" />
@@ -100,6 +102,8 @@
     <Content Include="Assets\Libraries\js\bootstrap.esm.min.js" />
     <Content Include="Assets\Libraries\js\bootstrap.js" />
     <Content Include="Assets\Libraries\js\bootstrap.min.js" />
+    <Content Include="bin\CruizeControlRentalCars.dll" />
+    <Content Include="bin\CruizeControlRentalCars.pdb" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="Global.asax" />
@@ -183,6 +187,7 @@
     <Content Include="Assets\Libraries\js\bootstrap.min.js.map" />
     <Content Include="obj\Debug\CruizeControlRentalCars.csproj.AssemblyReference.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="bin\CruizeControlRentalCars.dll.config" />
     <None Include="packages.config" />
     <Content Include="View\Admin\AdminMaster.Master" />
     <None Include="Web.Debug.config">
