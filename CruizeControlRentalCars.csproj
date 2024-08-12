@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Img\Ado.jpeg" />
     <Content Include="Assets\Img\BRABUS Rocket 900 grey.jpg" />
     <Content Include="Assets\Img\C63.png" />
     <Content Include="Assets\Img\car-png-16830.png" />
@@ -76,9 +77,12 @@
     <Content Include="Assets\Img\car-png-39053.png" />
     <Content Include="Assets\Img\car-png-39069.png" />
     <Content Include="Assets\Img\car-png-39071.png" />
+    <Content Include="Assets\Img\Hom.jpeg" />
+    <Content Include="Assets\Img\IMG_9774_07222019.png" />
     <Content Include="Assets\Img\Person.png" />
     <Content Include="Assets\Img\PIC 2.jpg" />
     <Content Include="Assets\Img\Pic3.jpg" />
+    <Content Include="Assets\Img\showroom_front.png" />
     <Content Include="Assets\Libraries\css\bootstrap-grid.css" />
     <Content Include="Assets\Libraries\css\bootstrap-grid.min.css" />
     <Content Include="Assets\Libraries\css\bootstrap-grid.rtl.css" />
