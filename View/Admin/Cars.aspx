@@ -57,7 +57,7 @@
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtRegNo" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Brand</label>
+                                <label for="exampleInputEmail1" class="form-label">Brand7</label>
                                 <input type="text" class="auto-style2" id="txtBrand" placeholder="Enter Car Brand Name" runat="server"><asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtBrand" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
 &nbsp;</div>
                             <div class="mb-3">
@@ -66,7 +66,7 @@
 &nbsp;</div>
                             <div class="mb-3">
                               <label for="exampleInputEmail1" class="form-label">Year Make</label>
-                              <input type="text" class="auto-style3" id="txtYearMake" placeholder="Enter Car Year Make" runat="server"><asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtYearMake" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
+                              <input type="text" class="auto-style3" id="txtYearMake" placeholder="Enter Car Year Make" runat="server"><asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtYearMake" ErrorMessage="Required!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
 &nbsp;</div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Color</label>

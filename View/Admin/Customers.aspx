@@ -56,8 +56,8 @@
                             &nbsp;</div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                                <input type="text" class="auto-style2" id="txtLname" placeholder="Enter Your Last Name" runat="server"><asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtLname" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
-                            &nbsp;</div>
+                                <input type="text" class="auto-style2" id="txtLname" placeholder="Enter Your Last Name" runat="server"><asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="Enter A Valid Password!!!" Font-Italic="True" ForeColor="#999999" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+&nbsp;</div>
 
                               <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Phone Number</label>
