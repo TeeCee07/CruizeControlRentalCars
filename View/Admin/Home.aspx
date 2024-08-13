@@ -75,7 +75,7 @@
             <h3>Login</h3>
             <form class="login-form">
                 <div class="mb-3">
-                    <label for="txtEmail" class="form-label">Email Address</label>
+                    <label for="txtEmail" class="form-label"> Email Address</label>
                     <input type="text" class="form-control" id="txtEmail" placeholder="Enter Your Email Address" runat="server">
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Enter A Valid Email Address!!!" Font-Italic="True" ForeColor="#999999" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </div>
