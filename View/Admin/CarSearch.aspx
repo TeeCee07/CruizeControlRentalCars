@@ -75,7 +75,7 @@
         /* About section */
         .about-section {
             position: absolute;
-            bottom: -250px; /* Pushes it further down */
+            bottom: -250px; 
             left: 0;
             right: 0;
             text-align: center;
