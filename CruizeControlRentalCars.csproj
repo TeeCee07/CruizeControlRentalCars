@@ -114,8 +114,9 @@
     <Content Include="View\Admin\Cars.aspx" />
     <Content Include="View\Admin\Customers.aspx" />
     <Content Include="View\Admin\Home.aspx" />
-    <Content Include="View\Admin\Rents.aspx" />
+    <Content Include="View\Admin\CarSearch.aspx" />
     <Content Include="View\Admin\Returns.aspx" />
+    <Content Include="View\Admin\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -152,12 +153,12 @@
     <Compile Include="View\Admin\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\Rents.aspx.cs">
-      <DependentUpon>Rents.aspx</DependentUpon>
+    <Compile Include="View\Admin\CarSearch.aspx.cs">
+      <DependentUpon>CarSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Admin\Rents.aspx.designer.cs">
-      <DependentUpon>Rents.aspx</DependentUpon>
+    <Compile Include="View\Admin\CarSearch.aspx.designer.cs">
+      <DependentUpon>CarSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\Returns.aspx.cs">
       <DependentUpon>Returns.aspx</DependentUpon>
@@ -165,6 +166,13 @@
     </Compile>
     <Compile Include="View\Admin\Returns.aspx.designer.cs">
       <DependentUpon>Returns.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Admin\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
