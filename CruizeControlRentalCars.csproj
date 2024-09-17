@@ -113,10 +113,13 @@
     <Content Include="Global.asax" />
     <Content Include="View\Admin\Cars.aspx" />
     <Content Include="View\Admin\Customers.aspx" />
-    <Content Include="View\Admin\Home.aspx" />
-    <Content Include="View\Admin\CarSearch.aspx" />
+    <Content Include="View\Customer\BookCar.aspx" />
+    <Content Include="View\Customer\Register.aspx" />
+    <Content Include="View\Customer\Login.aspx" />
+    <Content Include="View\Customer\CarSearch.aspx" />
     <Content Include="View\Admin\Returns.aspx" />
-    <Content Include="View\Admin\WebForm1.aspx" />
+    <Content Include="View\Admin\ViewCars.aspx" />
+    <Content Include="View\Customer\ViewCars.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -146,18 +149,32 @@
     <Compile Include="View\Admin\Customers.aspx.designer.cs">
       <DependentUpon>Customers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="View\Customer\BookCar.aspx.cs">
+      <DependentUpon>BookCar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Admin\Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="View\Customer\BookCar.aspx.designer.cs">
+      <DependentUpon>BookCar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\CarSearch.aspx.cs">
+    <Compile Include="View\Customer\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Customer\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Customer\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\CarSearch.aspx.cs">
       <DependentUpon>CarSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Admin\CarSearch.aspx.designer.cs">
+    <Compile Include="View\Customer\CarSearch.aspx.designer.cs">
       <DependentUpon>CarSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\Returns.aspx.cs">
@@ -167,12 +184,26 @@
     <Compile Include="View\Admin\Returns.aspx.designer.cs">
       <DependentUpon>Returns.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="View\Admin\ViewCars.aspx.cs">
+      <DependentUpon>ViewCars.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Admin\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="View\Admin\ViewCars.aspx.designer.cs">
+      <DependentUpon>ViewCars.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\CustomerMaster.Master.cs">
+      <DependentUpon>CustomerMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Customer\CustomerMaster.Master.designer.cs">
+      <DependentUpon>CustomerMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\ViewCars.aspx.cs">
+      <DependentUpon>ViewCars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Customer\ViewCars.aspx.designer.cs">
+      <DependentUpon>ViewCars.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +233,7 @@
     <Content Include="bin\CruizeControlRentalCars.dll.config" />
     <None Include="packages.config" />
     <Content Include="View\Admin\AdminMaster.Master" />
+    <Content Include="View\Customer\CustomerMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -214,7 +246,6 @@
     <Folder Include="Assets\CSS\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="View\Customer\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

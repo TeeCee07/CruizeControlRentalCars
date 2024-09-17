@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="Cars.aspx.cs" Inherits="CruizeControlRentalCars.View.Admin.Cars" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head"  runat="server">
     <style type="text/css">
         body {
             background-image: url('../../Assets/Img/car-png-16830.png');
@@ -15,8 +15,6 @@
             font-weight: 400;
             line-height: 1.5;
             color: var(--bs-body-color);
-            -webkit-appearance: none;
-            -moz-appearance: none;
             appearance: none;
             background-clip: padding-box;
             border-radius: var(--bs-border-radius);
@@ -34,6 +32,11 @@
         .auto-style5 {
             margin-left: -120px;
         }
+
+        .table thead th {
+            background-color: #007bff;
+            color: white;
+        }
     </style>
 </asp:Content>
 
@@ -48,41 +51,42 @@
                     <div class="col"></div>
                     <div class="col"></div><img src="../../Assets/Img/car-png-39071.png" class="auto-style4">
                 </div>
+                    </div>
                 <div class="row">
                     <div class="col d-grid">
-                        <!-- Controls go directly inside the existing form from Master Page -->
+                        <!-- Car Input Fields -->
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Registration Number</label>
+                            <label for="txtRegNo" class="form-label">Registration Number</label>
                             <input type="text" class="auto-style3" id="txtRegNo" placeholder="Enter Car Registration Number" runat="server">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtRegNo" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Brand</label>
+                            <label for="txtBrand" class="form-label">Brand</label>
                             <input type="text" class="auto-style2" id="txtBrand" placeholder="Enter Car Brand Name" runat="server">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtBrand" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Make</label>
+                            <label for="txtMake" class="form-label">Make</label>
                             <input type="text" class="auto-style3" id="txtMake" placeholder="Enter Car Make" runat="server">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtMake" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Year Make</label>
+                            <label for="txtYearMake" class="form-label">Year Make</label>
                             <input type="text" class="auto-style3" id="txtYearMake" placeholder="Enter Car Year Make" runat="server">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtYearMake" ErrorMessage="Required!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Color</label>
+                            <label for="txtColor" class="form-label">Color</label>
                             <input type="text" class="auto-style3" id="txtColor" placeholder="Enter Car Color" runat="server">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtColor" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Car Daily Rate</label>
+                            <label for="txtPrice" class="form-label">Car Daily Rate</label>
                             <input type="text" class="auto-style3" id="txtPrice" placeholder="Enter Car's Daily Rate" runat="server">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtPrice" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Available</label>
+                            <label for="ddlAvailable" class="form-label">Available</label>
                             <asp:DropDownList ID="ddlAvailable" runat="server">
                                 <asp:ListItem>Available</asp:ListItem>
                                 <asp:ListItem>Booked</asp:ListItem>
@@ -100,10 +104,21 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8"></div>
-            <table class="table">
-                <!-- Table content goes here -->
-            </table>
+            <div class="col-md-8">
+               
+                <h3>All Cars</h3>
+                <asp:GridView ID="gvCars" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-striped">
+                    <Columns>
+                        <asp:BoundField DataField="RegistrationNumber" HeaderText="Registration Number" />
+                        <asp:BoundField DataField="Brand" HeaderText="Brand" />
+                        <asp:BoundField DataField="Make" HeaderText="Make" />
+                        <asp:BoundField DataField="YearMake" HeaderText="Year Make" />
+                        <asp:BoundField DataField="Color" HeaderText="Color" />
+                        <asp:BoundField DataField="DailyRate" HeaderText="Daily Rate" />
+                        <asp:BoundField DataField="Available" HeaderText="Availability" />
+                    </Columns>
+                </asp:GridView>
+            </div>
         </div>
     </div>
 </asp:Content>

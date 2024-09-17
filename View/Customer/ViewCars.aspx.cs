@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CruizeControlRentalCars.View.Admin
+namespace CruizeControlRentalCars.View.Customer
 {
-    public partial class CustomerList : System.Web.UI.Page
+    public partial class ViewCars : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

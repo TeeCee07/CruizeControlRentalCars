@@ -1,5 +1,5 @@
-﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/View/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="CruizeControlRentalCars.View.Admin.Home" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="mybody" runat="server">
+﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/View/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CruizeControlRentalCars.View.Admin.Home" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="mybody2" runat="server">
 
     <style type="text/css">
         body {
@@ -15,7 +15,7 @@
     top: 50%;
     right: 10%;
     transform: translateY(-50%);
-    background-color: rgba(173, 216, 230, 0.9); /* Soft blue with slight transparency */
+    background-color: rgba(173, 216, 230, 0.9); 
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -73,9 +73,10 @@
 
         <div class="login-container">
             <h3>Login</h3>
+
             <form class="login-form">
                 <div class="mb-3">
-                    <label for="txtEmail" class="form-label"> Email Address</label>
+                    <label for="txtEmail" class="form-label">Email Address</label>
                     <input type="text" class="form-control" id="txtEmail" placeholder="Enter Your Email Address" runat="server">
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Enter A Valid Email Address!!!" Font-Italic="True" ForeColor="#999999" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </div>

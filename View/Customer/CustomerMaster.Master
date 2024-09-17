@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CustomerMaster.master.cs" Inherits="CruizeControlRentalCars.View.Customer.CustomerMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head1" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="../../Assets/Libraries/css/bootstrap.min.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar bg-primary" data-bs-theme="dark">
+        <a class="navbar-brand" href="#">CruizeControlRentals</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="Login.aspx">Home</a>
+                </li>
+                 <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="CarSearch.aspx">Search for a car</a>
+                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ViewCars.aspx">Available Cars</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="BookCar.aspx">Book a Car</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="CustomerRentals.aspx">My Rentals</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                
+                <asp:PlaceHolder ID="navLinks" runat="server"></asp:PlaceHolder>
+            </ul>
+        </div>
+    </nav>
+    <form id="form2" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="mybody2" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

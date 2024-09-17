@@ -1,6 +1,6 @@
-﻿<%@ Page Title="Rents" Language="C#" MasterPageFile="~/View/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="CarSearch.aspx.cs" Inherits="CruizeControlRentalCars.View.Admin.Home" %>
+﻿<%@ Page Title="Search for a car" Language="C#" MasterPageFile="~/View/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="CarSearch.aspx.cs" Inherits="CruizeControlRentalCars.View.Admin.Home" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="mybody" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="mybody2" runat="server">
     <style type="text/css">
         body {
             background-image: url('../../Assets/Img/pic3.jpg');
@@ -123,7 +123,7 @@
         }
     </style>
 
-    <!-- Content Wrapper for Centering Content -->
+    
     <div class="content-wrapper">
         <!-- Search Section -->
         <div class="container">
