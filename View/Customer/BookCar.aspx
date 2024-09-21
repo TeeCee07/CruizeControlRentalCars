@@ -24,39 +24,39 @@
         <table class="details-table">
             <tr>
                 <th>Customer Name</th>
-                <td><asp:Label ID="lblCustomerName" runat="server" Text="John Doe"></asp:Label></td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <th>Car Registration Number</th>
-                <td><asp:Label ID="lblRegNo" runat="server" Text="ABC1234"></asp:Label></td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <th>Car Brand</th>
-                <td><asp:Label ID="lblBrand" runat="server" Text="Toyota"></asp:Label></td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <th>Car Make</th>
-                <td><asp:Label ID="lblMake" runat="server" Text="Corolla"></asp:Label></td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <th>Car Year Make</th>
-                <td><asp:Label ID="lblYearMake" runat="server" Text="2020"></asp:Label></td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <th>Car Color</th>
-                <td><asp:Label ID="lblColor" runat="server" Text="Red"></asp:Label></td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <th>Daily Rate</th>
-                <td><asp:Label ID="lblDailyRate" runat="server" Text="$50"></asp:Label></td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <th>Booking Duration</th>
-                <td><asp:Label ID="lblDuration" runat="server" Text="3 Days"></asp:Label></td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <th>Total Price</th>
-                <td><asp:Label ID="lblTotalPrice" runat="server" Text="$150"></asp:Label></td>
+                <td>&nbsp;</td>
             </tr>
         </table>
         <div class="button">
