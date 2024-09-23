@@ -165,6 +165,7 @@
     <Content Include="View\Admin\Cars.aspx" />
     <Content Include="View\Admin\Customers.aspx" />
     <Content Include="View\Customer\BookCar.aspx" />
+    <Content Include="View\Customer\MyRentals.aspx" />
     <Content Include="View\Customer\Register.aspx" />
     <Content Include="View\Customer\Login.aspx" />
     <Content Include="View\Customer\CarSearch.aspx" />
@@ -206,6 +207,13 @@
     </Compile>
     <Compile Include="View\Customer\BookCar.aspx.designer.cs">
       <DependentUpon>BookCar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\MyRentals.aspx.cs">
+      <DependentUpon>MyRentals.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Customer\MyRentals.aspx.designer.cs">
+      <DependentUpon>MyRentals.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Customer\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
