@@ -29,7 +29,7 @@
                     <a class="nav-link" href="BookCar.aspx">Book a Car</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="CustomerRentals.aspx">My Rentals</a>
+                    <a class="nav-link" href="MyRentals.aspx">My Rentals</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
