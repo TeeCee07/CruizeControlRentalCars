@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="54a4847fa87b4ed1853800ec985827d5" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="cruise_control_rentalsModel.ADMIN" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="cruise_control_rentalsModel.BOOKING" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cruise_control_rentalsModel.CAR" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cruise_control_rentalsModel.CUSTOMER" Width="1.5" PointX="8.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cruise_control_rentalsModel.FEEDBACK" Width="1.5" PointX="6.125" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="cruise_control_rentalsModel.MAINTAINANCE" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cruise_control_rentalsModel.PAYMENT" Width="1.5" PointX="10.5" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="cruise_control_rentalsModel.FK_ADMIN_BOOKING" ManuallyRouted="false" />
+        <AssociationConnector Association="cruise_control_rentalsModel.FK_BOOKING_CAR" ManuallyRouted="false" />
+        <AssociationConnector Association="cruise_control_rentalsModel.FK_BOOKING_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="cruise_control_rentalsModel.FK_CAR_BOOKING" ManuallyRouted="false" />
+        <AssociationConnector Association="cruise_control_rentalsModel.FK_FEEDBACK_BOOKING" ManuallyRouted="false" />
+        <AssociationConnector Association="cruise_control_rentalsModel.FK_PAYMENT_BOOKING" ManuallyRouted="false" />
+        <AssociationConnector Association="cruise_control_rentalsModel.FK_MAINTAINANCE_CAR" ManuallyRouted="false" />
+        <AssociationConnector Association="cruise_control_rentalsModel.FK_PAYMENT_CAR" ManuallyRouted="false" />
+        <AssociationConnector Association="cruise_control_rentalsModel.FK_PAYMENT_CUSTOMER" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

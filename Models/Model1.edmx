@@ -1,0 +1,613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cruise_control_rentalsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADMIN">
+          <Key>
+            <PropertyRef Name="adminID" />
+          </Key>
+          <Property Name="adminID" Type="int" Nullable="false" />
+          <Property Name="Admin_UserName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Admin_Password" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="BookingID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BOOKING">
+          <Key>
+            <PropertyRef Name="BookingID" />
+          </Key>
+          <Property Name="BookingID" Type="int" Nullable="false" />
+          <Property Name="Start_BookingDate" Type="date" Nullable="false" />
+          <Property Name="End_BookingDate" Type="date" Nullable="false" />
+          <Property Name="Rental_Cost" Type="money" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAR">
+          <Key>
+            <PropertyRef Name="CarID" />
+          </Key>
+          <Property Name="CarID" Type="int" Nullable="false" />
+          <Property Name="Car_Make" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Car_Daily_Rate" Type="money" Nullable="false" />
+          <Property Name="Car_Brand" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Car_Capacity" Type="int" Nullable="false" />
+          <Property Name="Mileage" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Transmission" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BookingID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="Customer_FName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Customer_LName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Customer_Email" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Customer_PNum" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Customer_Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="License_No" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CustomerPassword" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FEEDBACK">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="int" Nullable="false" />
+          <Property Name="Renter_Rating" Type="int" Nullable="false" />
+          <Property Name="Renter_Comment" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="BookingID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MAINTAINANCE">
+          <Key>
+            <PropertyRef Name="MaintainanceID" />
+          </Key>
+          <Property Name="MaintainanceID" Type="int" Nullable="false" />
+          <Property Name="Maintainance_Cost" Type="money" Nullable="false" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAYMENT">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="int" Nullable="false" />
+          <Property Name="rental_Cost" Type="money" Nullable="false" />
+          <Property Name="Rental_Amount" Type="money" Nullable="false" />
+          <Property Name="Payment_Date" Type="date" Nullable="false" />
+          <Property Name="Payment_Method" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Damage_Cost" Type="money" Nullable="false" />
+          <Property Name="Extra_Costs" Type="money" Nullable="false" />
+          <Property Name="Total_Payment" Type="money" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+          <Property Name="Lateness_Fee" Type="money" Nullable="false" />
+          <Property Name="BookingID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ADMIN_BOOKING">
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="1" />
+          <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKING">
+              <PropertyRef Name="BookingID" />
+            </Principal>
+            <Dependent Role="ADMIN">
+              <PropertyRef Name="BookingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BOOKING_CAR">
+          <End Role="CAR" Type="Self.CAR" Multiplicity="1" />
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAR">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BOOKING_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAR_BOOKING">
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="1" />
+          <End Role="CAR" Type="Self.CAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKING">
+              <PropertyRef Name="BookingID" />
+            </Principal>
+            <Dependent Role="CAR">
+              <PropertyRef Name="BookingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FEEDBACK_BOOKING">
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="1" />
+          <End Role="FEEDBACK" Type="Self.FEEDBACK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKING">
+              <PropertyRef Name="BookingID" />
+            </Principal>
+            <Dependent Role="FEEDBACK">
+              <PropertyRef Name="BookingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MAINTAINANCE_CAR">
+          <End Role="CAR" Type="Self.CAR" Multiplicity="1" />
+          <End Role="MAINTAINANCE" Type="Self.MAINTAINANCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAR">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="MAINTAINANCE">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYMENT_BOOKING">
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="1" />
+          <End Role="PAYMENT" Type="Self.PAYMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKING">
+              <PropertyRef Name="BookingID" />
+            </Principal>
+            <Dependent Role="PAYMENT">
+              <PropertyRef Name="BookingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYMENT_CAR">
+          <End Role="CAR" Type="Self.CAR" Multiplicity="1" />
+          <End Role="PAYMENT" Type="Self.PAYMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAR">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="PAYMENT">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYMENT_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="PAYMENT" Type="Self.PAYMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="PAYMENT">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cruise_control_rentalsModelStoreContainer">
+          <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BOOKING" EntityType="Self.BOOKING" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAR" EntityType="Self.CAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FEEDBACK" EntityType="Self.FEEDBACK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MAINTAINANCE" EntityType="Self.MAINTAINANCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAYMENT" EntityType="Self.PAYMENT" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ADMIN_BOOKING" Association="Self.FK_ADMIN_BOOKING">
+            <End Role="BOOKING" EntitySet="BOOKING" />
+            <End Role="ADMIN" EntitySet="ADMIN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BOOKING_CAR" Association="Self.FK_BOOKING_CAR">
+            <End Role="CAR" EntitySet="CAR" />
+            <End Role="BOOKING" EntitySet="BOOKING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BOOKING_CUSTOMER" Association="Self.FK_BOOKING_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="BOOKING" EntitySet="BOOKING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAR_BOOKING" Association="Self.FK_CAR_BOOKING">
+            <End Role="BOOKING" EntitySet="BOOKING" />
+            <End Role="CAR" EntitySet="CAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FEEDBACK_BOOKING" Association="Self.FK_FEEDBACK_BOOKING">
+            <End Role="BOOKING" EntitySet="BOOKING" />
+            <End Role="FEEDBACK" EntitySet="FEEDBACK" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAINTAINANCE_CAR" Association="Self.FK_MAINTAINANCE_CAR">
+            <End Role="CAR" EntitySet="CAR" />
+            <End Role="MAINTAINANCE" EntitySet="MAINTAINANCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYMENT_BOOKING" Association="Self.FK_PAYMENT_BOOKING">
+            <End Role="BOOKING" EntitySet="BOOKING" />
+            <End Role="PAYMENT" EntitySet="PAYMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYMENT_CAR" Association="Self.FK_PAYMENT_CAR">
+            <End Role="CAR" EntitySet="CAR" />
+            <End Role="PAYMENT" EntitySet="PAYMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYMENT_CUSTOMER" Association="Self.FK_PAYMENT_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="PAYMENT" EntitySet="PAYMENT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cruise_control_rentalsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADMIN">
+          <Key>
+            <PropertyRef Name="adminID" />
+          </Key>
+          <Property Name="adminID" Type="Int32" Nullable="false" />
+          <Property Name="Admin_UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Admin_Password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BookingID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BOOKING" Relationship="Self.FK_ADMIN_BOOKING" FromRole="ADMIN" ToRole="BOOKING" />
+        </EntityType>
+        <EntityType Name="BOOKING">
+          <Key>
+            <PropertyRef Name="BookingID" />
+          </Key>
+          <Property Name="BookingID" Type="Int32" Nullable="false" />
+          <Property Name="Start_BookingDate" Type="DateTime" Nullable="false" />
+          <Property Name="End_BookingDate" Type="DateTime" Nullable="false" />
+          <Property Name="Rental_Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ADMINs" Relationship="Self.FK_ADMIN_BOOKING" FromRole="BOOKING" ToRole="ADMIN" />
+          <NavigationProperty Name="CAR" Relationship="Self.FK_BOOKING_CAR" FromRole="BOOKING" ToRole="CAR" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_BOOKING_CUSTOMER" FromRole="BOOKING" ToRole="CUSTOMER" />
+          <NavigationProperty Name="CARs" Relationship="Self.FK_CAR_BOOKING" FromRole="BOOKING" ToRole="CAR" />
+          <NavigationProperty Name="FEEDBACKs" Relationship="Self.FK_FEEDBACK_BOOKING" FromRole="BOOKING" ToRole="FEEDBACK" />
+          <NavigationProperty Name="PAYMENTs" Relationship="Self.FK_PAYMENT_BOOKING" FromRole="BOOKING" ToRole="PAYMENT" />
+        </EntityType>
+        <EntityType Name="CAR">
+          <Key>
+            <PropertyRef Name="CarID" />
+          </Key>
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <Property Name="Car_Make" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Car_Daily_Rate" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Car_Brand" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Car_Capacity" Type="Int32" Nullable="false" />
+          <Property Name="Mileage" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Transmission" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BookingID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BOOKINGs" Relationship="Self.FK_BOOKING_CAR" FromRole="CAR" ToRole="BOOKING" />
+          <NavigationProperty Name="BOOKING" Relationship="Self.FK_CAR_BOOKING" FromRole="CAR" ToRole="BOOKING" />
+          <NavigationProperty Name="MAINTAINANCEs" Relationship="Self.FK_MAINTAINANCE_CAR" FromRole="CAR" ToRole="MAINTAINANCE" />
+          <NavigationProperty Name="PAYMENTs" Relationship="Self.FK_PAYMENT_CAR" FromRole="CAR" ToRole="PAYMENT" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="Customer_FName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Customer_LName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Customer_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Customer_PNum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Customer_Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="License_No" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BOOKINGs" Relationship="Self.FK_BOOKING_CUSTOMER" FromRole="CUSTOMER" ToRole="BOOKING" />
+          <NavigationProperty Name="PAYMENTs" Relationship="Self.FK_PAYMENT_CUSTOMER" FromRole="CUSTOMER" ToRole="PAYMENT" />
+        </EntityType>
+        <EntityType Name="FEEDBACK">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="Int32" Nullable="false" />
+          <Property Name="Renter_Rating" Type="Int32" Nullable="false" />
+          <Property Name="Renter_Comment" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BookingID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BOOKING" Relationship="Self.FK_FEEDBACK_BOOKING" FromRole="FEEDBACK" ToRole="BOOKING" />
+        </EntityType>
+        <EntityType Name="MAINTAINANCE">
+          <Key>
+            <PropertyRef Name="MaintainanceID" />
+          </Key>
+          <Property Name="MaintainanceID" Type="Int32" Nullable="false" />
+          <Property Name="Maintainance_Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CAR" Relationship="Self.FK_MAINTAINANCE_CAR" FromRole="MAINTAINANCE" ToRole="CAR" />
+        </EntityType>
+        <EntityType Name="PAYMENT">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" />
+          <Property Name="rental_Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Rental_Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Payment_Date" Type="DateTime" Nullable="false" />
+          <Property Name="Payment_Method" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Damage_Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Extra_Costs" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Total_Payment" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <Property Name="Lateness_Fee" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="BookingID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BOOKING" Relationship="Self.FK_PAYMENT_BOOKING" FromRole="PAYMENT" ToRole="BOOKING" />
+          <NavigationProperty Name="CAR" Relationship="Self.FK_PAYMENT_CAR" FromRole="PAYMENT" ToRole="CAR" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_PAYMENT_CUSTOMER" FromRole="PAYMENT" ToRole="CUSTOMER" />
+        </EntityType>
+        <Association Name="FK_ADMIN_BOOKING">
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="1" />
+          <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKING">
+              <PropertyRef Name="BookingID" />
+            </Principal>
+            <Dependent Role="ADMIN">
+              <PropertyRef Name="BookingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BOOKING_CAR">
+          <End Role="CAR" Type="Self.CAR" Multiplicity="1" />
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAR">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BOOKING_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAR_BOOKING">
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="1" />
+          <End Role="CAR" Type="Self.CAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKING">
+              <PropertyRef Name="BookingID" />
+            </Principal>
+            <Dependent Role="CAR">
+              <PropertyRef Name="BookingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FEEDBACK_BOOKING">
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="1" />
+          <End Role="FEEDBACK" Type="Self.FEEDBACK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKING">
+              <PropertyRef Name="BookingID" />
+            </Principal>
+            <Dependent Role="FEEDBACK">
+              <PropertyRef Name="BookingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYMENT_BOOKING">
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="1" />
+          <End Role="PAYMENT" Type="Self.PAYMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKING">
+              <PropertyRef Name="BookingID" />
+            </Principal>
+            <Dependent Role="PAYMENT">
+              <PropertyRef Name="BookingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MAINTAINANCE_CAR">
+          <End Role="CAR" Type="Self.CAR" Multiplicity="1" />
+          <End Role="MAINTAINANCE" Type="Self.MAINTAINANCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAR">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="MAINTAINANCE">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYMENT_CAR">
+          <End Role="CAR" Type="Self.CAR" Multiplicity="1" />
+          <End Role="PAYMENT" Type="Self.PAYMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAR">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="PAYMENT">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYMENT_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="PAYMENT" Type="Self.PAYMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="PAYMENT">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cruise_control_rentalsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMINs" EntityType="Self.ADMIN" />
+          <EntitySet Name="BOOKINGs" EntityType="Self.BOOKING" />
+          <EntitySet Name="CARs" EntityType="Self.CAR" />
+          <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="FEEDBACKs" EntityType="Self.FEEDBACK" />
+          <EntitySet Name="MAINTAINANCEs" EntityType="Self.MAINTAINANCE" />
+          <EntitySet Name="PAYMENTs" EntityType="Self.PAYMENT" />
+          <AssociationSet Name="FK_ADMIN_BOOKING" Association="Self.FK_ADMIN_BOOKING">
+            <End Role="BOOKING" EntitySet="BOOKINGs" />
+            <End Role="ADMIN" EntitySet="ADMINs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BOOKING_CAR" Association="Self.FK_BOOKING_CAR">
+            <End Role="CAR" EntitySet="CARs" />
+            <End Role="BOOKING" EntitySet="BOOKINGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BOOKING_CUSTOMER" Association="Self.FK_BOOKING_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="BOOKING" EntitySet="BOOKINGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAR_BOOKING" Association="Self.FK_CAR_BOOKING">
+            <End Role="BOOKING" EntitySet="BOOKINGs" />
+            <End Role="CAR" EntitySet="CARs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FEEDBACK_BOOKING" Association="Self.FK_FEEDBACK_BOOKING">
+            <End Role="BOOKING" EntitySet="BOOKINGs" />
+            <End Role="FEEDBACK" EntitySet="FEEDBACKs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYMENT_BOOKING" Association="Self.FK_PAYMENT_BOOKING">
+            <End Role="BOOKING" EntitySet="BOOKINGs" />
+            <End Role="PAYMENT" EntitySet="PAYMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAINTAINANCE_CAR" Association="Self.FK_MAINTAINANCE_CAR">
+            <End Role="CAR" EntitySet="CARs" />
+            <End Role="MAINTAINANCE" EntitySet="MAINTAINANCEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYMENT_CAR" Association="Self.FK_PAYMENT_CAR">
+            <End Role="CAR" EntitySet="CARs" />
+            <End Role="PAYMENT" EntitySet="PAYMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYMENT_CUSTOMER" Association="Self.FK_PAYMENT_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="PAYMENT" EntitySet="PAYMENTs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cruise_control_rentalsModelStoreContainer" CdmEntityContainer="cruise_control_rentalsEntities">
+          <EntitySetMapping Name="ADMINs">
+            <EntityTypeMapping TypeName="cruise_control_rentalsModel.ADMIN">
+              <MappingFragment StoreEntitySet="ADMIN">
+                <ScalarProperty Name="adminID" ColumnName="adminID" />
+                <ScalarProperty Name="Admin_UserName" ColumnName="Admin_UserName" />
+                <ScalarProperty Name="Admin_Password" ColumnName="Admin_Password" />
+                <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOOKINGs">
+            <EntityTypeMapping TypeName="cruise_control_rentalsModel.BOOKING">
+              <MappingFragment StoreEntitySet="BOOKING">
+                <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+                <ScalarProperty Name="Start_BookingDate" ColumnName="Start_BookingDate" />
+                <ScalarProperty Name="End_BookingDate" ColumnName="End_BookingDate" />
+                <ScalarProperty Name="Rental_Cost" ColumnName="Rental_Cost" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CARs">
+            <EntityTypeMapping TypeName="cruise_control_rentalsModel.CAR">
+              <MappingFragment StoreEntitySet="CAR">
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="Car_Make" ColumnName="Car_Make" />
+                <ScalarProperty Name="Car_Daily_Rate" ColumnName="Car_Daily_Rate" />
+                <ScalarProperty Name="Car_Brand" ColumnName="Car_Brand" />
+                <ScalarProperty Name="Car_Capacity" ColumnName="Car_Capacity" />
+                <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+                <ScalarProperty Name="Transmission" ColumnName="Transmission" />
+                <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERs">
+            <EntityTypeMapping TypeName="cruise_control_rentalsModel.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="Customer_FName" ColumnName="Customer_FName" />
+                <ScalarProperty Name="Customer_LName" ColumnName="Customer_LName" />
+                <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+                <ScalarProperty Name="Customer_PNum" ColumnName="Customer_PNum" />
+                <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+                <ScalarProperty Name="License_No" ColumnName="License_No" />
+                <ScalarProperty Name="CustomerPassword" ColumnName="CustomerPassword" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FEEDBACKs">
+            <EntityTypeMapping TypeName="cruise_control_rentalsModel.FEEDBACK">
+              <MappingFragment StoreEntitySet="FEEDBACK">
+                <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+                <ScalarProperty Name="Renter_Rating" ColumnName="Renter_Rating" />
+                <ScalarProperty Name="Renter_Comment" ColumnName="Renter_Comment" />
+                <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MAINTAINANCEs">
+            <EntityTypeMapping TypeName="cruise_control_rentalsModel.MAINTAINANCE">
+              <MappingFragment StoreEntitySet="MAINTAINANCE">
+                <ScalarProperty Name="MaintainanceID" ColumnName="MaintainanceID" />
+                <ScalarProperty Name="Maintainance_Cost" ColumnName="Maintainance_Cost" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAYMENTs">
+            <EntityTypeMapping TypeName="cruise_control_rentalsModel.PAYMENT">
+              <MappingFragment StoreEntitySet="PAYMENT">
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+                <ScalarProperty Name="rental_Cost" ColumnName="rental_Cost" />
+                <ScalarProperty Name="Rental_Amount" ColumnName="Rental_Amount" />
+                <ScalarProperty Name="Payment_Date" ColumnName="Payment_Date" />
+                <ScalarProperty Name="Payment_Method" ColumnName="Payment_Method" />
+                <ScalarProperty Name="Damage_Cost" ColumnName="Damage_Cost" />
+                <ScalarProperty Name="Extra_Costs" ColumnName="Extra_Costs" />
+                <ScalarProperty Name="Total_Payment" ColumnName="Total_Payment" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="Lateness_Fee" ColumnName="Lateness_Fee" />
+                <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
