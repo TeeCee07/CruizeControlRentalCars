@@ -27,5 +27,7 @@
                 <asp:BoundField DataField="RentedCars" HeaderText="Rented Cars" />
             </Columns>
         </asp:GridView>
+
+       
     </div>
 </asp:Content>

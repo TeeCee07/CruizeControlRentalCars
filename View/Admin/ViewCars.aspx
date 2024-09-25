@@ -168,7 +168,7 @@
     <!-- Car Listings Section -->
     <div class="content-wrapper">
         <div id="carList" class="car-list">
-            <!-- Example Car Item -->
+            
             <div class="car-item">
                 <img src="path/to/car-image.jpg" alt="Car Name" />
                 <div class="car-info">
@@ -178,7 +178,7 @@
                     <button class="book-btn">Book Vehicle</button>
                 </div>
             </div>
-            <!-- Repeat car items as needed -->
+           
         </div>
     </div>
 </asp:Content>

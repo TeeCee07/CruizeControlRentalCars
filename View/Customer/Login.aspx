@@ -75,24 +75,37 @@
             <h3>Login</h3>
 
             <form class="login-form">
-                <div class="mb-3">
-                    <label for="txtEmail" class="form-label">Email Address</label>
-                    <input type="text" class="form-control" id="txtEmail" placeholder="Enter Your Email Address" runat="server">
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Enter A Valid Email Address!!!" Font-Italic="True" ForeColor="#999999" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                </div>
+                <<div class="mb-3">
+    <label for="txtEmail" class="form-label">Email Address </label>
+    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Enter Your Email Address"></asp:TextBox>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+        ControlToValidate="txtEmail" 
+        ErrorMessage="Enter A Valid Email Address!!!" 
+        Font-Italic="True" 
+        ForeColor="#999999" 
+        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+        Display="Dynamic">
+    </asp:RegularExpressionValidator>
+</div>
 
-                <div class="mb-3">
-                    <label for="txtPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="txtPassword" placeholder="Enter Your Password" runat="server">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPassword" ErrorMessage="Enter A Valid Password" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
-                </div>
+<div class="mb-3">
+    <label for="txtPassword" class="form-label">Password</label>
+    <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Enter Your Password"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+        ControlToValidate="txtPassword" 
+        ErrorMessage="Enter A Valid Password" 
+        Font-Italic="True" 
+        ForeColor="#999999" 
+        Display="Dynamic">
+    </asp:RequiredFieldValidator>
+</div>
+
 
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="chkRememberMe" runat="server">
                     <label class="form-check-label" for="chkRememberMe">Remember Me</label>
                 </div>
-
-                <button type="submit" class="btn btn-primary">Login</button>
+                    <asp:Button ID="BtnLogin" runat="server" CssClass="btn btn-primary" Text="Login" OnClick="BtnLogin_Click" />
 
                 <div class="mt-3">
                     <a href="#" class="text-decoration-none">Forgot Password?</a>
@@ -103,4 +116,5 @@
             </form>
         </div>
     </div>
+        
 </asp:Content>

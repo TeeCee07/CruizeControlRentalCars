@@ -36,7 +36,13 @@
         .table thead th {
             background-color: #007bff;
             color: white;
+
         }
+        .error-message {
+           margin-top: 5px;
+           font-weight: bold;
+           color: red; 
+}
     </style>
 </asp:Content>
 
@@ -54,37 +60,42 @@
                     </div>
                 <div class="row">
                     <div class="col d-grid">
-                        <!-- Car Input Fields -->
-                        <div class="mb-3">
-                            <label for="txtRegNo" class="form-label">Registration Number</label>
-                            <input type="text" class="auto-style3" id="txtRegNo" placeholder="Enter Car Registration Number" runat="server">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtRegNo" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
-                        </div>
-                        <div class="mb-3">
-                            <label for="txtBrand" class="form-label">Brand</label>
-                            <input type="text" class="auto-style2" id="txtBrand" placeholder="Enter Car Brand Name" runat="server">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtBrand" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
-                        </div>
-                        <div class="mb-3">
-                            <label for="txtMake" class="form-label">Make</label>
-                            <input type="text" class="auto-style3" id="txtMake" placeholder="Enter Car Make" runat="server">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtMake" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
-                        </div>
-                        <div class="mb-3">
-                            <label for="txtYearMake" class="form-label">Year Make</label>
-                            <input type="text" class="auto-style3" id="txtYearMake" placeholder="Enter Car Year Make" runat="server">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtYearMake" ErrorMessage="Required!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
-                        </div>
-                        <div class="mb-3">
-                            <label for="txtColor" class="form-label">Color</label>
-                            <input type="text" class="auto-style3" id="txtColor" placeholder="Enter Car Color" runat="server">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtColor" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
-                        </div>
-                        <div class="mb-3">
-                            <label for="txtPrice" class="form-label">Car Daily Rate</label>
-                            <input type="text" class="auto-style3" id="txtPrice" placeholder="Enter Car's Daily Rate" runat="server">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtPrice" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
-                        </div>
+                       <div class="mb-3">
+    <label for="txtRegNo" class="form-label">Registration Number</label>
+    <asp:TextBox ID="txtRegNo" runat="server" CssClass="auto-style3" placeholder="Enter Car Registration Number"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtRegNo" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
+</div>
+
+<div class="mb-3">
+    <label for="txtBrand" class="form-label">Brand</label>
+    <asp:TextBox ID="txtBrand" runat="server" CssClass="auto-style2" placeholder="Enter Car Brand Name"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtBrand" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
+</div>
+
+<div class="mb-3">
+    <label for="txtMake" class="form-label">Make</label>
+    <asp:TextBox ID="txtMake" runat="server" CssClass="auto-style3" placeholder="Enter Car Make"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtMake" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
+</div>
+
+<div class="mb-3">
+    <label for="txtYearMake" class="form-label">Year Make</label>
+    <asp:TextBox ID="txtYearMake" runat="server" CssClass="auto-style3" placeholder="Enter Car Year Make"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtYearMake" ErrorMessage="Required!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
+</div>
+
+<div class="mb-3">
+    <label for="txtColor" class="form-label">Color</label>
+    <asp:TextBox ID="txtColor" runat="server" CssClass="auto-style3" placeholder="Enter Car Color"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtColor" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
+</div>
+
+<div class="mb-3">
+    <label for="txtPrice" class="form-label">Car Daily Rate</label>
+    <asp:TextBox ID="txtPrice" runat="server" CssClass="auto-style3" placeholder="Enter Car's Daily Rate"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtPrice" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
+</div>
+
                         <div class="mb-3">
                             <label for="ddlAvailable" class="form-label">Available</label>
                             <asp:DropDownList ID="ddlAvailable" runat="server">
@@ -92,16 +103,18 @@
                                 <asp:ListItem>Booked</asp:ListItem>
                             </asp:DropDownList>
                         </div>
-                        <div class="mb-3">
-                            <label for="fileUpload" class="form-label">Upload Car Picture</label>
-                            <asp:FileUpload ID="fileUpload" runat="server" />
+                                <div class="mb-3">
+                                <label for="fileUpload" class="form-label">Upload Car Picture</label>
+                                <asp:FileUpload ID="fileUpload" runat="server" />
+                                <asp:Label ID="lblError" runat="server" ForeColor="Red" CssClass="error-message" />
+                            </div>
+                                                              <div class="d-flex">
+                            <asp:Button ID="btnEdit" runat="server" CssClass="btn btn-primary" Text="Edit" OnClick="BtnEdit_Click" />
+                            <asp:Button ID="btnAdd" runat="server" CssClass="btn btn-primary" Text="Add" OnClick="BtnAdd_Click" />
+                            <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-primary" Text="Delete" OnClick="BtnDelete_Click" />
                         </div>
-                        <div class="d-flex">
-                            <button type="submit" class="btn btn-primary" style="width: 90px; margin-right: 5px;">Edit</button>
-                            <button type="submit" class="btn btn-primary" style="width: 90px; margin-right: 5px;">Add</button>
-                            <button type="submit" class="btn btn-primary" style="width: 90px;">Delete</button>
-                        </div>
-                    </div>
+
+                    
                 </div>
             </div>
             <div class="col-md-8">

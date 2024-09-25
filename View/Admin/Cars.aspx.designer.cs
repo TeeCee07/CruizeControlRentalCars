@@ -21,7 +21,7 @@ namespace CruizeControlRentalCars.View.Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtRegNo;
+        protected global::System.Web.UI.WebControls.TextBox txtRegNo;
 
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -39,7 +39,7 @@ namespace CruizeControlRentalCars.View.Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtBrand;
+        protected global::System.Web.UI.WebControls.TextBox txtBrand;
 
         /// <summary>
         /// RequiredFieldValidator7 control.
@@ -57,7 +57,7 @@ namespace CruizeControlRentalCars.View.Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMake;
+        protected global::System.Web.UI.WebControls.TextBox txtMake;
 
         /// <summary>
         /// RequiredFieldValidator8 control.
@@ -75,7 +75,7 @@ namespace CruizeControlRentalCars.View.Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtYearMake;
+        protected global::System.Web.UI.WebControls.TextBox txtYearMake;
 
         /// <summary>
         /// RequiredFieldValidator9 control.
@@ -93,7 +93,7 @@ namespace CruizeControlRentalCars.View.Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtColor;
+        protected global::System.Web.UI.WebControls.TextBox txtColor;
 
         /// <summary>
         /// RequiredFieldValidator10 control.
@@ -111,7 +111,7 @@ namespace CruizeControlRentalCars.View.Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPrice;
+        protected global::System.Web.UI.WebControls.TextBox txtPrice;
 
         /// <summary>
         /// RequiredFieldValidator11 control.
@@ -139,6 +139,42 @@ namespace CruizeControlRentalCars.View.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fileUpload;
+
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
+        /// btnEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEdit;
+
+        /// <summary>
+        /// btnAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdd;
+
+        /// <summary>
+        /// btnDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDelete;
 
         /// <summary>
         /// gvCars control.
