@@ -58,6 +58,7 @@
                     <div class="col"></div><img src="../../Assets/Img/car-png-39071.png" class="auto-style4">
                 </div>
                     </div>
+                    </div>
                 <div class="row">
                     <div class="col d-grid">
                        <div class="mb-3">
@@ -72,29 +73,47 @@
     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtBrand" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
 </div>
 
-<div class="mb-3">
+<div class="mb-4">
     <label for="txtMake" class="form-label">Make</label>
     <asp:TextBox ID="txtMake" runat="server" CssClass="auto-style3" placeholder="Enter Car Make"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtMake" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
 </div>
 
-<div class="mb-3">
+<div class="mb-5">
     <label for="txtYearMake" class="form-label">Year Make</label>
     <asp:TextBox ID="txtYearMake" runat="server" CssClass="auto-style3" placeholder="Enter Car Year Make"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtYearMake" ErrorMessage="Required!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
 </div>
 
-<div class="mb-3">
+<div class="mb-6">
     <label for="txtColor" class="form-label">Color</label>
     <asp:TextBox ID="txtColor" runat="server" CssClass="auto-style3" placeholder="Enter Car Color"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtColor" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
 </div>
-
-<div class="mb-3">
-    <label for="txtPrice" class="form-label">Car Daily Rate</label>
-    <asp:TextBox ID="txtPrice" runat="server" CssClass="auto-style3" placeholder="Enter Car's Daily Rate"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtPrice" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
+<div class="mb-7">
+    <label for="txtMileage" class="form-label">Mileage</label>
+    <asp:TextBox ID="txtMileage" runat="server" CssClass="auto-style3" placeholder="Enter Car Mileage"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtMileage" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
 </div>
+ <div class="mb-7">
+    <label for="txtCapacity" class="form-label">Capacity</label>
+    <asp:TextBox ID="txtCapacity" runat="server" CssClass="auto-style3" placeholder="Enter Car Capacity"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtCapacity" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
+</div>
+ <div class="mb-8">
+    <label for="txtPrice" class="form-label">Price</label>
+    <asp:TextBox ID="txtPrice" runat="server" CssClass="auto-style3" placeholder="Enter Car Daily Rate"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPrice" ErrorMessage="Required!!!" Font-Italic="True" ForeColor="#999999"></asp:RequiredFieldValidator>
+</div>
+<div class="mb-9">
+    <label for="ddlTransmission" class="form-label">Transmission</label>
+  <asp:DropDownList ID="ddlTransmission" runat="server">
+    <asp:ListItem Text="Manual" value="1" ></asp:ListItem>
+    <asp:ListItem Text="Automatic" Value="2" ></asp:ListItem>
+</asp:DropDownList>
+</div>
+
+
 
                         <div class="mb-3">
                             <label for="ddlAvailable" class="form-label">Available</label>
@@ -122,13 +141,15 @@
                 <h3>All Cars</h3>
                 <asp:GridView ID="gvCars" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-striped">
                     <Columns>
-                        <asp:BoundField DataField="RegistrationNumber" HeaderText="Registration Number" />
-                        <asp:BoundField DataField="Brand" HeaderText="Brand" />
-                        <asp:BoundField DataField="Make" HeaderText="Make" />
+                        <asp:BoundField DataField="RegistrationNo" HeaderText="Registration Number" />
+                        <asp:BoundField DataField="Car_Brand" HeaderText="Brand" />
+                        <asp:BoundField DataField="Car_Make" HeaderText="Make" />
                         <asp:BoundField DataField="YearMake" HeaderText="Year Make" />
                         <asp:BoundField DataField="Color" HeaderText="Color" />
-                        <asp:BoundField DataField="DailyRate" HeaderText="Daily Rate" />
+                        <asp:BoundField DataField="Transmission" HeaderText="Transmission" />
+                        <asp:BoundField DataField="Car_Daily_Rate" HeaderText="Daily Rate" />
                         <asp:BoundField DataField="Available" HeaderText="Availability" />
+                        <asp:BoundField DataField="ImagePath" HeaderText="Picture" />
                     </Columns>
                 </asp:GridView>
             </div>

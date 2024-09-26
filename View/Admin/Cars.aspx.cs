@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace CruizeControlRentalCars.View.Admin
 {
     public partial class Cars : Page
     {
-        private string connectionString = "your_connection_string_here"; // Update with your actual connection string
+        private string connectionString = ConfigurationManager.ConnectionStrings["cruise_control_rentalsEntities"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,21 +25,24 @@ namespace CruizeControlRentalCars.View.Admin
             // Check if file is uploaded
             if (fileUpload.HasFile)
             {
-                string filePath = Server.MapPath("~/Assets/Images/") + fileUpload.FileName; // Specify the folder where images will be stored
+                string filePath = Server.MapPath("~/Assets/Img/") + fileUpload.FileName; // Specify the folder where images will be stored
                 fileUpload.SaveAs(filePath); // Save the uploaded file
 
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO Cars (RegistrationNumber, Brand, Make, YearMake, Color, DailyRate, Available, ImagePath) VALUES (@RegNo, @Brand, @Make, @YearMake, @Color, @DailyRate, @Available, @ImagePath)", con))
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO CAR (RegistrationNo, Car_Capacity, Car_Brand, Car_Make,Transmission, YearMake, Color,  Car_Daily_Rate, Mileage, Available, ImagePath) VALUES (@RegNo, @Capacity, @Brand, @Make, @Transmission, @YearMake, @Color, @DailyRate, @Mileage, @Available, @ImagePath)", con))
                     {
                         cmd.Parameters.AddWithValue("@RegNo", txtRegNo.Text);
                         cmd.Parameters.AddWithValue("@Brand", txtBrand.Text);
+                        cmd.Parameters.AddWithValue("@Transmission", ddlTransmission.SelectedValue);
                         cmd.Parameters.AddWithValue("@Make", txtMake.Text);
+                        cmd.Parameters.AddWithValue("@Capacity", txtCapacity.Text);
                         cmd.Parameters.AddWithValue("@YearMake", txtYearMake.Text);
                         cmd.Parameters.AddWithValue("@Color", txtColor.Text);
                         cmd.Parameters.AddWithValue("@DailyRate", txtPrice.Text);
                         cmd.Parameters.AddWithValue("@Available", ddlAvailable.SelectedValue);
                         cmd.Parameters.AddWithValue("@ImagePath", fileUpload.FileName);
+                        cmd.Parameters.AddWithValue("@Mileage", txtMileage.Text);
 
                         con.Open();
                         cmd.ExecuteNonQuery();
@@ -62,15 +67,15 @@ namespace CruizeControlRentalCars.View.Admin
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("UPDATE Cars SET Brand = @Brand, Make = @Make, YearMake = @YearMake, Color = @Color, DailyRate = @DailyRate, Available = @Available WHERE RegistrationNumber = @RegNo", con))
+                using (SqlCommand cmd = new SqlCommand("UPDATE CAR SET Mileage = @Mileage, Car_Daily_Rate = @DailyRate, Available = @Available WHERE RegistrationNo = @RegNo", con))
                 {
-                    cmd.Parameters.AddWithValue("@RegNo", regNo);
-                    cmd.Parameters.AddWithValue("@Brand", txtBrand.Text);
-                    cmd.Parameters.AddWithValue("@Make", txtMake.Text);
-                    cmd.Parameters.AddWithValue("@YearMake", txtYearMake.Text);
-                    cmd.Parameters.AddWithValue("@Color", txtColor.Text);
+                    //cmd.Parameters.AddWithValue("@RegNo", regNo);
+                   // cmd.Parameters.AddWithValue("@Brand", txtBrand.Text);
+                    //cmd.Parameters.AddWithValue("@Make", txtMake.Text);
+                   // cmd.Parameters.AddWithValue("@YearMake", txtYearMake.Text);
+                    cmd.Parameters.AddWithValue("@Mileage", txtMileage.Text);
                     cmd.Parameters.AddWithValue("@DailyRate", txtPrice.Text);
-                    cmd.Parameters.AddWithValue("@Available", ddlAvailable.SelectedValue);
+                    cmd.Parameters.AddWithValue("@Available", ddlAvailable.SelectedItem);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -89,7 +94,7 @@ namespace CruizeControlRentalCars.View.Admin
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("DELETE FROM Cars WHERE RegistrationNumber = @RegNo", con))
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM CAR WHERE RegistrationNo = @RegNo", con))
                 {
                     cmd.Parameters.AddWithValue("@RegNo", regNo);
 
@@ -107,7 +112,7 @@ namespace CruizeControlRentalCars.View.Admin
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT RegistrationNumber, Brand, Make, YearMake, Color, DailyRate, Available, ImagePath FROM Cars", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT RegistrationNo, Car_Brand, Car_Make, BookingID, Car_Capacity, YearMake, Color, Transmission, Car_Daily_Rate, Available, ImagePath FROM CAR", con))
                 {
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -126,6 +131,7 @@ namespace CruizeControlRentalCars.View.Admin
             txtYearMake.Text = string.Empty;
             txtColor.Text = string.Empty;
             txtPrice.Text = string.Empty;
+            ddlTransmission.SelectedIndex = 0;
             ddlAvailable.SelectedIndex = 0;
         }
     }
