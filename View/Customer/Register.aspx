@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="CruizeControlRentalCars.View.Admin.Customers" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="CruizeControlRentalCars.View.Customer.Register" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="mybody2" runat="server">
 
 <style type="text/css"> 
@@ -78,7 +78,6 @@
     <section class="registration-form">
         <h1>Register</h1>
         <asp:Panel ID="RegistrationPanel" runat="server">
-            <asp:Label ID="lblError" runat="server" ForeColor="Red" Visible="false"></asp:Label>
             <asp:Label Text="First Name" runat="server" />
             <asp:TextBox ID="txtFirstName" runat="server" placeholder="Enter your first name" required="true"></asp:TextBox>
             
@@ -87,7 +86,10 @@
             
             <asp:Label Text="Phone Number" runat="server" />
             <asp:TextBox ID="txtPhoneNumber" runat="server" placeholder="Enter your phone number" required="true"></asp:TextBox>
-            
+
+            <asp:Label Text="Licence Number" runat="server" />
+            <asp:TextBox ID="txtLicence" runat="server" placeholder="Enter your licence Number" required="true" ></asp:TextBox>
+
             <asp:Label Text="Email Address" runat="server" />
             <asp:TextBox ID="txtEmail" runat="server" placeholder="Enter your email address" required="true" TextMode="Email"></asp:TextBox>
             
@@ -95,6 +97,8 @@
             <asp:TextBox ID="txtPassword" runat="server" placeholder="Enter your password" required="true" TextMode="Password"></asp:TextBox>
             
             <asp:Label Text="Confirm Password" runat="server" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblError" runat="server" ForeColor="Red" Visible="false"></asp:Label>
             <asp:TextBox ID="txtConfirmPassword" runat="server" placeholder="Confirm your password" required="true" TextMode="Password"></asp:TextBox>
             
             <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />

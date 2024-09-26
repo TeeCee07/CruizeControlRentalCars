@@ -9,11 +9,11 @@ using System.Configuration;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CruizeControlRentalCars.View.Admin
+namespace CruizeControlRentalCars.View.Customer
 {
-    public partial class Customers : System.Web.UI.Page
+    public partial class Register : System.Web.UI.Page
     {
-        private string connectionString = ConfigurationManager.ConnectionStrings["YourConnectionStringName"].ConnectionString;
+        private string connectionString = ConfigurationManager.ConnectionStrings["cruise_control_rentalsEntities"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,11 +35,13 @@ namespace CruizeControlRentalCars.View.Admin
             // Insert customer details into the database
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO Customers (FirstName, LastName, PhoneNumber, Email, Password) VALUES (@FirstName, @LastName, @PhoneNumber, @Email, @Password)", con))
+
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO [Customers] (Customer_FName, Customer_LName, Customer_PNum, License_No, Customer_Email, CustomerPassword) VALUES (@FirstName, @LastName, @PhoneNumber, @LicenceNumber, @Email, @Password)", con))
                 {
                     cmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
                     cmd.Parameters.AddWithValue("@LastName", txtLastName.Text);
                     cmd.Parameters.AddWithValue("@PhoneNumber", txtPhoneNumber.Text);
+                    cmd.Parameters.AddWithValue("@LicenceNumber", txtLicence.Text);
                     cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@Password", hashedPassword);
 
@@ -85,6 +87,7 @@ namespace CruizeControlRentalCars.View.Admin
             txtFirstName.Text = string.Empty;
             txtLastName.Text = string.Empty;
             txtPhoneNumber.Text = string.Empty;
+            txtLicence.Text = string.Empty;
             txtEmail.Text = string.Empty;
             txtPassword.Text = string.Empty;
             txtConfirmPassword.Text = string.Empty;

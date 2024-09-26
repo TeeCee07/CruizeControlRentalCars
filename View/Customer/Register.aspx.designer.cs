@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CruizeControlRentalCars.View.Admin
+namespace CruizeControlRentalCars.View.Customer
 {
 
 
-    public partial class Customers
+    public partial class Register
     {
 
         /// <summary>
@@ -22,15 +22,6 @@ namespace CruizeControlRentalCars.View.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel RegistrationPanel;
-
-        /// <summary>
-        /// lblError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
         /// txtFirstName control.
@@ -60,6 +51,15 @@ namespace CruizeControlRentalCars.View.Admin
         protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
 
         /// <summary>
+        /// txtLicence control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLicence;
+
+        /// <summary>
         /// txtEmail control.
         /// </summary>
         /// <remarks>
@@ -76,6 +76,15 @@ namespace CruizeControlRentalCars.View.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
+
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
         /// txtConfirmPassword control.

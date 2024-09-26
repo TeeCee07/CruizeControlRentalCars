@@ -2,45 +2,52 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using Org.BouncyCastle.Tls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CruizeControlRentalCars.View.Admin
 {
     public partial class Customers : System.Web.UI.Page
     {
-        private string connectionString = ConfigurationManager.ConnectionStrings["YourConnectionStringName"].ConnectionString;
+        // Retrieve the connection string from Web.config using its name
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["cruise_control_rentalsEntities"].ConnectionString;
 
+        // Single Page_Load method
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                // Call the method to load customers
                 LoadCustomers();
             }
         }
 
         private void LoadCustomers()
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
+            // Using block ensures proper disposal of SqlConnection
+            using (SqlConnection con = new SqlConnection(@"Data Source =.; User ID = sa; Password = ********; Connect Timeout = 30; Encrypt = True; Trust Server Certificate = True; Application Intent = ReadWrite; Multi Subnet Failover = False"))
             {
+                // SQL query to fetch customer details
                 using (SqlCommand cmd = new SqlCommand("SELECT CustomerID, FirstName + ' ' + LastName AS Name, Email, PhoneNumber AS Phone, RentedCars FROM Customers", con))
                 {
                     con.Open();
+
+                    // Execute the query and load the data into a DataTable
                     SqlDataReader reader = cmd.ExecuteReader();
                     DataTable dt = new DataTable();
                     dt.Load(reader);
-                    if (dt.Rows.Count == 0)
+
+                    // Bind the GridView only if data is available
+                    if (dt.Rows.Count > 0)
                     {
-                        // Check if dt is empty
-                        Response.Write("No customers found.");
+                        gvCustomers.DataSource = dt;
+                        gvCustomers.DataBind();
                     }
                     else
                     {
-                        // Bind the data
-                        gvCustomers.DataSource = dt;
+                        // Handle case where no customers are found
+                        gvCustomers.DataSource = null;
                         gvCustomers.DataBind();
                     }
 

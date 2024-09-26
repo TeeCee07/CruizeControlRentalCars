@@ -45,7 +45,7 @@ namespace CruizeControlRentalCars.View.Admin
 
         private bool IsAdmin(string email, string password)
         {
-            // Replace these with your actual admin credentials
+            
             string adminUsername = "admin@11.com";
             string adminPassword = "123454321";
 
@@ -54,13 +54,13 @@ namespace CruizeControlRentalCars.View.Admin
 
         private bool IsValidCustomer(string email, string password)
         {
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["YourConnectionString"].ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["cruise_control_rentalsEntities"].ConnectionString))
             {
                 conn.Open();
-                string query = "SELECT COUNT(1) FROM Customers WHERE Email = @Email AND Password = @Password";
+                string query = "SELECT COUNT(1) FROM Customers WHERE Customer_Email = @Email AND CustomerPassword = @Password";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Password", password); // Consider hashing passwords
+                cmd.Parameters.AddWithValue("@Password", password); 
 
                 int count = (int)cmd.ExecuteScalar();
                 return count == 1;
