@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace CruizeControlRentalCars.View.Customer
 {
@@ -11,7 +11,60 @@ namespace CruizeControlRentalCars.View.Customer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["CustomerID"] == null)
+                {
+                    // Redirect to login 
+                    Response.Redirect("~/Login.aspx");
+                }
+                else
+                {
+                    BindRentalHistory();  
+                }
+            }
         }
+
+        private void BindRentalHistory()
+        {
+            string connectionString = "Server=VONANI;Initial Catalog=Cruize_Control_Car_Rentals;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"SELECT BookingID as RentalID, CarID as CarName, Start_BookingDate as PickupDate, 
+                            End_BookingsDate as ReturnDate, Rental_Cost as Price, 
+                            CASE 
+                                WHEN GETDATE() > End_BookingsDate THEN 'Completed' 
+                                ELSE 'Active' 
+                            END as Status 
+                            FROM BOOKING 
+                            WHERE customerID = @CustomerID;";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@CustomerID", HttpContext.Current.Session["CustomerID"]);
+
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+
+                        if (dt.Rows.Count > 0)
+                        {
+                            gvRentalHistory.DataSource = dt;  
+                            gvRentalHistory.DataBind();
+                            lblMessage.Visible = false;  
+                        }
+                        else
+                        {
+                            gvRentalHistory.DataSource = null;  
+                            gvRentalHistory.DataBind();
+                            lblMessage.Text = "No rental history found.";
+                            lblMessage.Visible = true;  
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

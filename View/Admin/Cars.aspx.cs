@@ -8,7 +8,7 @@ namespace CruizeControlRentalCars.View.Admin
 {
     public partial class Cars : Page
     {
-        private string connectionString = "your_connection_string_here"; // Update with your actual connection string
+        private string connectionString = "VONANI;Initial Catalog=Cruize_Control_Car_Rentals;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"; // Update with your actual connection string
 
         protected void Page_Load(object sender, EventArgs e)
         {
