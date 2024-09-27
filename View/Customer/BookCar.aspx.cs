@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace CruizeControlRentalCars.View.Customer
 {
@@ -24,6 +25,16 @@ namespace CruizeControlRentalCars.View.Customer
         {
             try
             {
+
+                if (string.IsNullOrEmpty(txtCustomerName.Text) ||
+                 string.IsNullOrEmpty(txtBookingDuration.Text) ||
+                 string.IsNullOrEmpty(txtDailyRate.Text))
+                {
+                    Response.Write("<script>alert('Please fill out all required fields.');</script>");
+                    return;
+                }
+
+
                 // Retrieve booking duration and daily rate
                 int bookingDuration = int.Parse(txtBookingDuration.Text);
                 decimal dailyRate = decimal.Parse(txtDailyRate.Text);
@@ -39,10 +50,11 @@ namespace CruizeControlRentalCars.View.Customer
                     string query = "INSERT INTO Bookings (CustomerName, CarRegNo, BookingDuration, TotalPrice) VALUES (@CustomerName, @CarRegNo, @BookingDuration, @TotalPrice)";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@CustomerName", txtCustomerName.Text);
-                        cmd.Parameters.AddWithValue("@CarRegNo", txtCarRegNo.Text);
-                        cmd.Parameters.AddWithValue("@BookingDuration", bookingDuration);
-                        cmd.Parameters.AddWithValue("@TotalPrice", totalPrice);
+                        cmd.Parameters.Add("@CustomerName", SqlDbType.NVarChar).Value = txtCustomerName.Text;
+                        cmd.Parameters.Add("@CarRegNo", SqlDbType.NVarChar).Value = txtCarRegNo.Text;
+                        cmd.Parameters.Add("@BookingDuration", SqlDbType.Int).Value = bookingDuration;
+                        cmd.Parameters.Add("@TotalPrice", SqlDbType.Decimal).Value = totalPrice;
+
 
                         cmd.ExecuteNonQuery();
                     }
