@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
@@ -27,7 +28,7 @@ namespace CruizeControlRentalCars.View.Customer
 
         private void BindRentalHistory()
         {
-            string connectionString = "Server=VONANI;Initial Catalog=Cruize_Control_Car_Rentals;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+            string connectionString =  ConfigurationManager.ConnectionStrings["cruise_control_rentalsEntities"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"SELECT BookingID as RentalID, CarID as CarName, Start_BookingDate as PickupDate, 
