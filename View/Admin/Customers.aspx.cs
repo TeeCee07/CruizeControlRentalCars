@@ -26,10 +26,10 @@ namespace CruizeControlRentalCars.View.Admin
         private void LoadCustomers()
         {
             // Using block ensures proper disposal of SqlConnection
-            using (SqlConnection con = new SqlConnection(@"Data Source =.; User ID = sa; Password = ********; Connect Timeout = 30; Encrypt = True; Trust Server Certificate = True; Application Intent = ReadWrite; Multi Subnet Failover = False"))
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 // SQL query to fetch customer details
-                using (SqlCommand cmd = new SqlCommand("SELECT CustomerID, FirstName + ' ' + LastName AS Name, Email, PhoneNumber AS Phone, RentedCars FROM Customers", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT CustomerID, Customer_FName + ' ' + Customer_LName AS Name, Customer_Email AS Email, Customer_PNum AS Phone,License_No AS License  FROM Customers", con))
                 {
                     con.Open();
 
