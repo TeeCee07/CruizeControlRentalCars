@@ -1,5 +1,4 @@
-﻿<%@ Page Title="Search for a car" Language="C#" MasterPageFile="~/View/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="CarSearch.aspx.cs" Inherits="CruizeControlRentalCars.View.Admin.Home" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="SearchForCar.aspx.cs" Inherits="CruizeControlRentalCars.View.Customer.SearchForCar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="mybody2" runat="server">
     <style type="text/css">
         body {

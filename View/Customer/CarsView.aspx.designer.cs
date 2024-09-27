@@ -7,20 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CruizeControlRentalCars.View.Admin
+namespace CruizeControlRentalCars.View.Customer
 {
 
 
-    public partial class CarList
+    public partial class CarsView
     {
 
         /// <summary>
-        /// gvCarList control.
+        /// RepeaterCars control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCarList;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterCars;
     }
 }

@@ -170,13 +170,12 @@
     <Content Include="View\Admin\Cars.aspx" />
     <Content Include="View\Admin\Customers.aspx" />
     <Content Include="View\Customer\BookCar.aspx" />
+    <Content Include="View\Customer\CarsView.aspx" />
     <Content Include="View\Customer\MyRentals.aspx" />
     <Content Include="View\Customer\Register.aspx" />
     <Content Include="View\Customer\Login.aspx" />
-    <Content Include="View\Customer\CarSearch.aspx" />
     <Content Include="View\Admin\Returns.aspx" />
-    <Content Include="View\Admin\ViewCars.aspx" />
-    <Content Include="View\Customer\ViewCars.aspx" />
+    <Content Include="View\Customer\SearchForCar.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +219,13 @@
     <Compile Include="View\Customer\BookCar.aspx.designer.cs">
       <DependentUpon>BookCar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Customer\CarsView.aspx.cs">
+      <DependentUpon>CarsView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Customer\CarsView.aspx.designer.cs">
+      <DependentUpon>CarsView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Customer\MyRentals.aspx.cs">
       <DependentUpon>MyRentals.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -241,26 +247,12 @@
     <Compile Include="View\Customer\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\CarSearch.aspx.cs">
-      <DependentUpon>CarSearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Customer\CarSearch.aspx.designer.cs">
-      <DependentUpon>CarSearch.aspx</DependentUpon>
-    </Compile>
     <Compile Include="View\Admin\Returns.aspx.cs">
       <DependentUpon>Returns.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\Admin\Returns.aspx.designer.cs">
       <DependentUpon>Returns.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\ViewCars.aspx.cs">
-      <DependentUpon>ViewCars.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Admin\ViewCars.aspx.designer.cs">
-      <DependentUpon>ViewCars.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Customer\CustomerMaster.Master.cs">
       <DependentUpon>CustomerMaster.Master</DependentUpon>
@@ -269,12 +261,12 @@
     <Compile Include="View\Customer\CustomerMaster.Master.designer.cs">
       <DependentUpon>CustomerMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\ViewCars.aspx.cs">
-      <DependentUpon>ViewCars.aspx</DependentUpon>
+    <Compile Include="View\Customer\SearchForCar.aspx.cs">
+      <DependentUpon>SearchForCar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Customer\ViewCars.aspx.designer.cs">
-      <DependentUpon>ViewCars.aspx</DependentUpon>
+    <Compile Include="View\Customer\SearchForCar.aspx.designer.cs">
+      <DependentUpon>SearchForCar.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

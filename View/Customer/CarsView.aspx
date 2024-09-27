@@ -1,11 +1,10 @@
-﻿<%@ Page Title="View Cars" Language="C#" MasterPageFile="~/View/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="ViewCars.aspx.cs" Inherits="CruizeControlRentalCars.View.Customer.ViewCars" %>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="mybody2" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="CarsView.aspx.cs" Inherits="CruizeControlRentalCars.View.Customer.CarsView" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="mybody2" runat="server">
     <style type="text/css">
         body {
             background-image: url('../../Assets/Img/pic3.jpg');
             background-size: cover;
-            background-attachment: fixed;
+            background-attachment: fixed; 
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -26,6 +25,7 @@
             gap: 15px;
         }
 
+        /* Rental Details (Horizontal Layout) */
         .rental-details {
             display: flex;
             gap: 30px;
@@ -40,14 +40,11 @@
             font-weight: bold;
         }
 
+        /* Filter and Sort Section (Horizontal Layout) */
         .filter-container {
             display: flex;
             align-items: center;
             gap: 20px;
-        }
-
-        .filter-container label {
-            font-weight: bold;
         }
 
         .filter-container select {
@@ -59,13 +56,7 @@
             color: #333;
         }
 
-        .filter-icon {
-            width: 20px;
-            height: 20px;
-            display: inline-block;
-            margin-right: 8px;
-        }
-
+        /* Content starts below the filters */
         .content-wrapper {
             padding-top: 150px;
             max-height: calc(100vh - 150px);
@@ -127,52 +118,30 @@
 
     <!-- Search Information and Filter Section -->
     <div class="search-filter-container">
-        <!-- Rental Details in Horizontal Layout -->
         <div class="rental-details">
             <p><strong>Location:</strong> [Selected Location]</p>
             <p><strong>Rental Start Date:</strong> [Start Date]</p>
             <p><strong>Rental End Date:</strong> [End Date]</p>
             <p><strong>Times:</strong> [Start Time] to [End Time]</p>
         </div>
-
-        <!-- Filter and Sort Options -->
-        <div class="filter-container">
-            <div>
-                <label for="sortByDropdown">Sort by:</label>
-                <select id="sortByDropdown">
-                    <option value="price">Price</option>
-                    <option value="name">Name</option>
-                </select>
-            </div>
-            <div>
-                <label for="filterDropdown">
-                    <img src="path/to/filter-icon.png" alt="Filter" class="filter-icon" />
-                    Filter by:
-                </label>
-                <select id="filterDropdown">
-                    <option value="all">All Cars</option>
-                    <option value="mini">Mini</option>
-                    <option value="sedan">Sedan</option>
-                    <option value="suv">SUV</option>
-                </select>
-            </div>
-        </div>
     </div>
 
     <!-- Car Listings Section -->
     <div class="content-wrapper">
         <div id="carList" class="car-list">
-            <!-- Example Car Item -->
-            <div class="car-item">
-                <img src="path/to/car-image.jpg" alt="Car Name" />
-                <div class="car-info">
-                    <h3>Car Name</h3>
-                    <p>Price: $100/day</p>
-                    <p>Seats: 4 | Doors: 4 | Transmission: Manual | AC: Yes</p>
-                    <button class="book-btn">Book Vehicle</button>
-                </div>
-            </div>
-            <!-- Repeat car items as needed -->
+            <asp:Repeater ID="RepeaterCars" runat="server">
+                <ItemTemplate>
+                    <div class="car-item">
+                        <img src='<%# Eval("ImagePath") %>' alt='<%# Eval("Car_Brand") %>' />
+                        <div class="car-info">
+                            <h3><%# Eval("Car_Brand") %> <%# Eval("Car_Make") %> - <%# Eval("YearMake") %></h3>
+                            <p>Price: <%# Eval("Car_Daily_Rate", "{0:C}") %> / day</p>
+                            <p>Seats: <%# Eval("Car_Capacity") %> | Transmission: <%# Eval("Transmission") %>  %></p>
+                            <asp:Button ID="btnBook" runat="server" Text="Book Vehicle" CssClass="book-btn" CommandArgument='<%# Eval("RegistrationNo") %>' OnClick="BookVehicle" />
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
     </div>
 </asp:Content>

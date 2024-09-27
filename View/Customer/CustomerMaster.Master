@@ -20,10 +20,10 @@
                     <a class="nav-link active" aria-current="page" href="Login.aspx">Home</a>
                 </li>
                  <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="CarSearch.aspx">Search for a car</a>
+                     <a class="nav-link active" aria-current="page" href="SearchForCar.aspx">Search for a car</a>
                  </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ViewCars.aspx">Available Cars</a>
+                    <a class="nav-link" href="CarsView.aspx">Available Cars</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="BookCar.aspx">Book a Car</a>
