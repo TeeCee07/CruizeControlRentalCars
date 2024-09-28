@@ -80,7 +80,7 @@
         <p><strong>Sustainability:</strong> We are continually working to introduce eco-friendly and fuel-efficient vehicles to reduce our environmental footprint.</p>
 
         <h2>Our Story</h2>
-        <p>Established in [Year], <strong>Cruize Control Car Rentals</strong> began with a simple idea – to revolutionize the car rental industry by offering a hassle-free experience that caters to the needs of modern travelers. Starting with just a handful of vehicles, we’ve grown into a trusted rental service with a wide range of options for customers across multiple locations.</p>
+        <p>Established in 2024, <strong>Cruize Control Car Rentals</strong> began with a simple idea – to revolutionize the car rental industry by offering a hassle-free experience that caters to the needs of modern travelers. Starting with just a handful of vehicles, we’ve grown into a trusted rental service with a wide range of options for customers across multiple locations.</p>
 
         <h2>Looking Ahead</h2>
         <p>As we grow, our commitment remains the same: to provide you with the best possible car rental experience. Whether you're renting for a few hours or several weeks, <strong>Cruize Control Car Rentals</strong> is here to make sure your journey is smooth, enjoyable, and hassle-free.</p>

@@ -87,10 +87,10 @@
             <p>Welcome to <strong>Cruize Control Car Rentals</strong>. These Terms and Conditions govern the rental of vehicles from our company. By renting a vehicle from us, you agree to these terms in full. Please read them carefully before using our services.</p>
             
             <h3>1. Eligibility for Rental</h3>
-            <p>Renters must be at least 21 years old. Drivers under the age of 25 may be subject to additional charges. All renters must hold a valid driver’s license for at least one year prior to the rental date. International drivers must present a valid International Driving Permit (IDP) if required.</p>
+            <p>Renters must be at least 21 years old. Drivers under the age of 25 may be subject to additional charges. All renters must hold a valid driver’s license for at least one year prior to the rental date.</p>
             
             <h3>2. Booking and Reservation</h3>
-            <p>A reservation confirmation will be sent once a booking is made. Full payment or a deposit is required to confirm the reservation. Payment can be made via credit or debit card.</p>
+            <p>A reservation confirmation will be sent once a booking is made. Full payment or a deposit is required to confirm the reservation. Payment must be made in person.</p>
             
             <h3>3. Rental Period</h3>
             <p>The rental period begins at the time of vehicle pickup and ends when the vehicle is returned to the agreed-upon location. Late returns may incur additional charges.</p>
