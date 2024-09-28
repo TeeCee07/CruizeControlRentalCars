@@ -169,13 +169,16 @@
     <Content Include="View\Admin\CarList.aspx" />
     <Content Include="View\Admin\Cars.aspx" />
     <Content Include="View\Admin\Customers.aspx" />
+    <Content Include="View\Customer\AboutUs.aspx" />
     <Content Include="View\Customer\BookCar.aspx" />
     <Content Include="View\Customer\CarsView.aspx" />
     <Content Include="View\Customer\MyRentals.aspx" />
+    <Content Include="View\Customer\QueryPage.aspx" />
     <Content Include="View\Customer\Register.aspx" />
     <Content Include="View\Customer\Login.aspx" />
     <Content Include="View\Admin\Returns.aspx" />
     <Content Include="View\Customer\SearchForCar.aspx" />
+    <Content Include="View\Customer\Terms.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +215,13 @@
     <Compile Include="View\Admin\Customers.aspx.designer.cs">
       <DependentUpon>Customers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Customer\AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Customer\AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Customer\BookCar.aspx.cs">
       <DependentUpon>BookCar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -232,6 +242,13 @@
     </Compile>
     <Compile Include="View\Customer\MyRentals.aspx.designer.cs">
       <DependentUpon>MyRentals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\QueryPage.aspx.cs">
+      <DependentUpon>QueryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Customer\QueryPage.aspx.designer.cs">
+      <DependentUpon>QueryPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Customer\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -267,6 +284,13 @@
     </Compile>
     <Compile Include="View\Customer\SearchForCar.aspx.designer.cs">
       <DependentUpon>SearchForCar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\Terms.aspx.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Customer\Terms.aspx.designer.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

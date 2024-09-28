@@ -15,6 +15,15 @@ namespace CruizeControlRentalCars.View.Customer
     {
 
         /// <summary>
+        /// rentalDetailsLiteral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal rentalDetailsLiteral;
+
+        /// <summary>
         /// RepeaterCars control.
         /// </summary>
         /// <remarks>

@@ -11,7 +11,7 @@ namespace CruizeControlRentalCars.View.Customer
 {
 
 
-    public partial class SearchForCar
+    public partial class AboutUs
     {
     }
 }

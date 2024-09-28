@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Data;
+using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
-using System.Web.UI.WebControls;
 
 namespace CruizeControlRentalCars.View.Customer
 {
@@ -12,55 +11,55 @@ namespace CruizeControlRentalCars.View.Customer
         {
             if (!IsPostBack)
             {
-                LoadCars();
+                // Retrieve the query string values
+                string pickupLocation = Request.QueryString["pickupLocation"];
+                string dropoffLocation = Request.QueryString["dropoffLocation"];
+                string startDate = Request.QueryString["startDate"];
+                string startTime = Request.QueryString["startTime"];
+                string endDate = Request.QueryString["endDate"];
+                string endTime = Request.QueryString["endTime"];
+
+                // Populate the rental details section
+                if (!string.IsNullOrEmpty(pickupLocation) && !string.IsNullOrEmpty(dropoffLocation))
+                {
+                    rentalDetailsLiteral.Text = $"<strong>Location:</strong> {pickupLocation} <br />" +
+                                                $"<strong>Rental Start Date:</strong> {startDate} <br />" +
+                                                $"<strong>Rental End Date:</strong> {endDate} <br />" +
+                                                $"<strong>Times:</strong> {startTime} to {endTime}";
+                }
+
+                // Now bind the cars to the Repeater based on the pickup location
+                BindCarData(pickupLocation);
             }
         }
 
-        private void LoadCars()
+        // Method to fetch and bind car data
+        private void BindCarData(string pickupLocation)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["cruise_control_rentalsEntities"].ConnectionString;
 
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT RegistrationNo, Car_Brand, Car_Make, YearMake, Car_Daily_Rate, Car_Capacity, Transmission, ImagePath FROM CAR WHERE Available = 'Yes'";
+                string query = "SELECT * FROM CAR WHERE Location = @pickupLocation";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@pickupLocation", pickupLocation);
 
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    try
-                    {
-                        con.Open();
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                        // Check if the DataTable has rows
-                        if (dt.Rows.Count > 0)
-                        {
-                            RepeaterCars.DataSource = dt;
-                            RepeaterCars.DataBind();
-                        }
-                        else
-                        {
-                            System.Diagnostics.Debug.WriteLine("No cars available.");
-                            
-                        }
-                    }
-
-                    catch (Exception ex)
-                    {
-                        // Handle exception (log it, show a message, etc.)
-                        System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
-                    }
-                }
+                RepeaterCars.DataSource = reader;
+                RepeaterCars.DataBind();
             }
         }
 
+        // OnClick event handler for booking a car
         protected void BookVehicle(object sender, EventArgs e)
         {
-            string registrationNo = (sender as Button).CommandArgument;
+            Button btn = (Button)sender;
+            string registrationNo = btn.CommandArgument;
 
-            // Redirect to the booking page with the selected car's registration number
-            Response.Redirect($"BookCar.aspx?regNo={registrationNo}");
+            // Redirect to a booking page or handle booking logic
+            Response.Redirect($"BookingPage.aspx?registrationNo={registrationNo}");
         }
     }
 }

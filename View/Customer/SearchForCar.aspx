@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="SearchForCar.aspx.cs" Inherits="CruizeControlRentalCars.View.Customer.SearchForCar" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="mybody2" runat="server">
     <style type="text/css">
         body {
@@ -36,13 +37,8 @@
             gap: 15px;
         }
 
-        .search-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
         .search-box {
+            position: relative;
             display: flex;
             flex-direction: column;
         }
@@ -53,6 +49,30 @@
             border-radius: 5px;
             border: 1px solid #ccc;
             font-size: 16px;
+        }
+
+        .autocomplete-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            border: 1px solid #ccc;
+            background-color: white;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1000;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .autocomplete-suggestions li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .autocomplete-suggestions li:hover {
+            background-color: #f0f0f0;
         }
 
         .search-button {
@@ -70,117 +90,117 @@
             cursor: pointer;
             font-size: 18px;
         }
-
-        /* About section */
-        .about-section {
-            position: absolute;
-            bottom: -250px; 
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 14px;
-            color: #ffffff;
-            background-color: #008cdd;
-            padding: 10px;
-            margin: 0 auto;
-        }
-
-        .about-section p {
-            margin: 5px 0;
-        }
-
-        .about-links {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .about-links a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .about-links a:hover {
-            color: #ffeb3b;
-        }
-
-        .divider {
-            width: 80%;
-            height: 1px;
-            background-color: #ffffff;
-            margin: 10px auto;
-        }
-
-        .footer {
-            font-size: 12px;
-            color: #ffffff;
-            text-align: center;
-            margin-top: 10px;
-        }
     </style>
 
-    
     <div class="content-wrapper">
-        <!-- Search Section -->
         <div class="container">
-            <div class="search-container">
-                <div class="search-box">
-                    <input type="text" placeholder="Pick-up Location" />
-                </div>
-                <div class="search-box">
-                    <input type="text" placeholder="Drop-off Location" />
-                </div>
-                <div class="search-box">
-                    <input type="date" placeholder="Pick-up Date" />
-                </div>
-                <div class="search-box">
-                    <input type="time" placeholder="Pick-up Time" />
-                </div>
-                <div class="search-box">
-                    <input type="date" placeholder="Drop-off Date" />
-                </div>
-                <div class="search-box">
-                    <input type="time" placeholder="Drop-off Time" />
-                </div>
-                <div class="search-box">
-                    <select>
-                        <option value="30-60">Driver's age: 30-60</option>
-                        <option value="21-29">Driver's age: 21-29</option>
-                        <option value="61+">Driver's age: 61+</option>
-                    </select>
-                </div>
-                <div class="search-button">
-                    <button type="button">Search</button>
-                </div>
+            <!-- Search Fields -->
+            <div class="search-box">
+                <input type="text" id="txtPickupLocation" placeholder="Pick-up Location" />
+                <ul id="pickupSuggestions" class="autocomplete-suggestions"></ul>
+            </div>
+            <div class="search-box">
+                <input type="text" id="txtDropoffLocation" placeholder="Drop-off Location" />
+                <ul id="dropoffSuggestions" class="autocomplete-suggestions"></ul>
+            </div>
+
+            <!-- Other Fields -->
+            <div class="search-box">
+                <input type="date" placeholder="Pick-up Date" />
+            </div>
+            <div class="search-box">
+                <input type="time" placeholder="Pick-up Time" />
+            </div>
+            <div class="search-box">
+                <input type="date" placeholder="Drop-off Date" />
+            </div>
+            <div class="search-box">
+                <input type="time" placeholder="Drop-off Time" />
+            </div>
+            <div class="search-box">
+                <select>
+                    <option value="30-60">Driver's age: 30-60</option>
+                    <option value="21-29">Driver's age: 21-29</option>
+                    <option value="61+">Driver's age: 61+</option>
+                </select>
+            </div>
+
+            <!-- Search Button -->
+            <div class="search-button">
+                <button type="button">Search</button>
             </div>
         </div>
     </div>
 
-    <!-- Small About Section -->
-    <div class="about-section">
-        <h3>Cruize Control Rental Cars</h3>
-        <p>Discover the Freedom to Explore!</p>
-        <p>Take control of your journey. Drive with confidence. Drive with Cruize Control!</p>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-        <!-- Links Section -->
-        <div class="about-links">
-            <a href="#">About Us</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Blog</a>
-        </div>
+    <!-- jQuery Autocomplete Script -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Pickup Location Autocomplete
+            $('#txtPickupLocation').on('keyup', function () {
+                var query = $(this).val();
+                if (query.length >= 2) {
+                    $.ajax({
+                        type: "POST",
+                        url: "SearchForCar.aspx/GetLocationSuggestions",
+                        data: JSON.stringify({ searchTerm: query }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            var suggestions = response.d;
+                            var suggestionsList = $('#pickupSuggestions');
+                            suggestionsList.empty();
+                            if (suggestions.length > 0) {
+                                $.each(suggestions, function (index, suggestion) {
+                                    suggestionsList.append('<li>' + suggestion + '</li>');
+                                });
+                            } else {
+                                suggestionsList.append('<li>No results found</li>');
+                            }
+                        }
+                    });
+                }
+            });
 
-        <!-- Divider Line -->
-        <div class="divider"></div>
+            // Dropoff Location Autocomplete
+            $('#txtDropoffLocation').on('keyup', function () {
+                var query = $(this).val();
+                if (query.length >= 2) {
+                    $.ajax({
+                        type: "POST",
+                        url: "SearchForCar.aspx/GetLocationSuggestions",
+                        data: JSON.stringify({ searchTerm: query }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            var suggestions = response.d;
+                            var suggestionsList = $('#dropoffSuggestions');
+                            suggestionsList.empty();
+                            if (suggestions.length > 0) {
+                                $.each(suggestions, function (index, suggestion) {
+                                    suggestionsList.append('<li>' + suggestion + '</li>');
+                                });
+                            } else {
+                                suggestionsList.append('<li>No results found</li>');
+                            }
+                        }
+                    });
+                }
+            });
 
-        <!-- Footer -->
-        <div class="footer">
-            © cruizecontrol.com <br />
-            All Rights Reserved.
-        </div>
-    </div>
+            // Pickup Location Selection
+            $(document).on('click', '#pickupSuggestions li', function () {
+                $('#txtPickupLocation').val($(this).text());
+                $('#pickupSuggestions').empty(); // Clear suggestions after selection
+            });
+
+            // Dropoff Location Selection
+            $(document).on('click', '#dropoffSuggestions li', function () {
+                $('#txtDropoffLocation').val($(this).text());
+                $('#dropoffSuggestions').empty(); // Clear suggestions after selection
+            });
+        });
+    </script>
 </asp:Content>

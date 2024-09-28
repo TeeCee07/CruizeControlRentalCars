@@ -47,6 +47,7 @@ namespace CruizeControlRentalCars.View.Admin
 
                 // Clear inputs after adding a vehicle
                 ClearInputs();
+                Response.Redirect("CarList.aspx");
             }
             else
             {

@@ -24,6 +24,15 @@ namespace CruizeControlRentalCars.View.Customer
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head1;
 
         /// <summary>
+        /// form2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
+
+        /// <summary>
         /// navLinks control.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,13 @@ namespace CruizeControlRentalCars.View.Customer
         protected global::System.Web.UI.WebControls.PlaceHolder navLinks;
 
         /// <summary>
-        /// form2 control.
+        /// btnLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
+        protected global::System.Web.UI.WebControls.LinkButton btnLogout;
 
         /// <summary>
         /// mybody2 control.

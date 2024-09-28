@@ -7,38 +7,47 @@
     <asp:ContentPlaceHolder ID="head1" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" href="../../Assets/Libraries/css/bootstrap.min.css" />
+    <style>
+        /* Ensure the body has padding to account for the fixed navbar */
+        body {
+            padding-top: 56px; /* Adjust based on navbar height */
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar bg-primary" data-bs-theme="dark">
-        <a class="navbar-brand" href="#">CruizeControlRentals</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="Login.aspx">Home</a>
-                </li>
-                 <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="SearchForCar.aspx">Search for a car</a>
-                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="CarsView.aspx">Available Cars</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="BookCar.aspx">Book a Car</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="MyRentals.aspx">My Rentals</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                
-                <asp:PlaceHolder ID="navLinks" runat="server"></asp:PlaceHolder>
-            </ul>
-        </div>
-    </nav>
     <form id="form2" runat="server">
+        <nav class="navbar navbar-expand-lg navbar bg-primary fixed-top" data-bs-theme="dark">
+            <a class="navbar-brand" href="#">CruizeControlRentals</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="Login.aspx">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="About.aspx">About Us</a>
+                    </li>
+                      <li class="nav-item">
+                           <a class="nav-link active" aria-current="page" href="QueryPage.aspx">Contact Us</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="CarsView.aspx">Available Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Terms.aspx">Terms And Conditions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="MyRentals.aspx">My Rentals</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <asp:PlaceHolder ID="navLinks" runat="server">
+                        <asp:LinkButton ID="btnLogout" runat="server" OnClick="Logout_Click" CssClass="nav-link">Logout</asp:LinkButton>
+                    </asp:PlaceHolder>
+                </ul>
+            </div>
+        </nav>
         <div>
             <asp:ContentPlaceHolder ID="mybody2" runat="server">
             </asp:ContentPlaceHolder>
